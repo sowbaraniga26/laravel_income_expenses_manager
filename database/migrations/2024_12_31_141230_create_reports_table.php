@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->string('amount');
 
-            $table->string('report_type')->ReportType::EXPENSE;
+            $table->string('report_type')->default(ReportType::EXPENSE);
             $table->timestamps();
         });
     }
