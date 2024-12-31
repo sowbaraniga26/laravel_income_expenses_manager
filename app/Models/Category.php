@@ -11,4 +11,12 @@ class Category extends Model
     public $fillable = [
         'name'
     ];
+
+    /**
+     * Get all reports associated with the category.
+     */
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }
