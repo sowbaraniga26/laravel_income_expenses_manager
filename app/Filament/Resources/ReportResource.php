@@ -25,9 +25,9 @@ class ReportResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_id')
+                Forms\Components\Select::make('category_id')
                     ->required()
-                    ->numeric(),
+                    ->relationship('category', 'name'),
                 Forms\Components\TextInput::make('description')
                     ->required()
                     ->maxLength(255),
@@ -45,7 +45,7 @@ class ReportResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id')
+                Tables\Columns\TextColumn::make('category.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('description')
